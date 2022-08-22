@@ -1,0 +1,23 @@
+{
+    "name": "Jira Estimations",
+    "description": "Additionne automatiquement les estimations les tâches sélectionnées dans le sprint actif et le backlog",
+    "version": "1.0",
+    "manifest_version": 3,
+    "content_scripts": [{
+        "matches": ["https://*.atlassian.net/*"],
+        "js": ["injector.extra.js"],
+        "run_at": "document_start"
+    }],
+    "web_accessible_resources": [{
+        "matches": ["https://*.atlassian.net/*"],
+        "resources": [
+            "main.bundle.js",
+            "jquery.extra.js"
+        ]
+    }],
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    }
+}
