@@ -3,7 +3,7 @@ Additionne automatiquement les estimations les tâches sélectionnées dans le s
 
 # Installation
 Téléchargez le plugin depuis les release GitHub ou en cliquant directement sur
-[ce lien](https://github.com/wiilog/jira-estimations/releases/download/v1.0.0/jira-estimations.zip).
+[ce lien](https://github.com/wiilog/jira-estimations/releases/latest/download/jira-estimations.zip).
 Il faut ensuite décompresser le fichier ZIP téléchargé.
 
 Aller sur [chrome://extensions/](chrome://extensions/) puis activer le mode développeur en cliquant sur le switch en
