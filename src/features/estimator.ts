@@ -12,6 +12,7 @@ export function setupEstimator() {
 
     container.style.display = `flex`;
     container.style.flexDirection = `row-reverse`;
+
     container.insertBefore(element(button(
         `calculate-estimations`,
         `Estimer les tâches sélectionnées`,

@@ -3,7 +3,11 @@ interface Style {
     textTransform?: string;
 }
 
-function generateStyle(config: Style) {
+function generateStyle(config: Style|string) {
+    if(typeof config === `string`) {
+        return config;
+    }
+
     let style = ``;
     if(config.marginLeft) {
         style += `margin-left: ${config.marginLeft} !important;`;
@@ -27,16 +31,59 @@ export function element<T = Element>(html: string, keepHTML: boolean = false): T
     return element.firstElementChild as unknown as T;
 }
 
-export function button(id: string, text: string, style: Style = {}): Element|string|any {
+export function button(id: string, text: string, style: Style|string = {}): Element|string|any {
+    const buttonStyle = `
+        -webkit-box-align: baseline;
+        align-items: baseline;
+        box-sizing: border-box;
+        display: inline-flex;
+        font-size: inherit;
+        font-style: normal;
+        font-family: inherit;
+        font-weight: 500;
+        max-width: 100%;
+        position: relative;
+        text-align: center;
+        white-space: nowrap;
+        color: var(--ds-text-onBold, #FFFFFF);
+        cursor: pointer;
+        height: 2.28571em;
+        line-height: 2.28571em;
+        vertical-align: middle;
+        width: auto;
+        -webkit-box-pack: center;
+        justify-content: center;
+        background-color: var(--ds-background-boldBrand-resting, #0052CC);
+        border-width: 0px;
+        border-radius: 3px;
+        text-decoration: none;
+        transition: background 0.1s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
+        padding: 0px 10px;
+        outline: none;
+        margin: 0 0 0 5px;
+    `.replace(/\s+/g,` `).replace(/(\r\n|\n|\r)/gm, ``).trim();
+
+    const spanStyle = `
+        opacity: 1;
+        transition: opacity 0.3s ease 0s;
+        margin: 0px 2px;
+        -webkit-box-flex: 1;
+        flex-grow: 1;
+        flex-shrink: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    `.replace(/\s+/g,` `).replace(/(\r\n|\n|\r)/gm, ``).trim();
+
     return `
-        <button id="${id}" class="css-cxhge5" style="${generateStyle(style)}" type="button">
-            <span class="css-19r5em7">${text}</span>
+        <button id="${id}" style="${buttonStyle} ${generateStyle(style)}" type="button">
+            <span style="${spanStyle}">${text}</span>
         </button>
     `;
 }
 
-export function badge(text: string, style: Style = {}): Element|string|any {
-    if(!style.textTransform) {
+export function badge(text: string, style: Style|string = {}): Element|string|any {
+    if(typeof style !== `string` && !style.textTransform) {
         style.textTransform = `none`;
     }
 
