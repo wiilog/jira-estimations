@@ -1,6 +1,6 @@
 {
     "name": "jira-estimations",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Chrome extension for Jira",
     "main": "src/entrypoint.ts",
     "repository": "https://github.com/wiilog/jira-estimations.git",

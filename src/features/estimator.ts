@@ -5,7 +5,7 @@ const MINUTES_IN_DAY = 60 * 7;
 const MINUTES_IN_WEEK = 60 * 7 * 5;
 
 export function setupEstimator() {
-    const container = document.querySelector<HTMLDivElement>(`#ghx-controls-buttons`);
+    const container = document.querySelector<HTMLDivElement>(`._18u014y2`);
     if(container.querySelector(`#calculate-estimations`)) {
         return;
     }
@@ -25,7 +25,7 @@ export function setupEstimator() {
 function displayEstimations() {
     let totalMinutes = 0;
 
-    const elements = document.querySelectorAll<HTMLSpanElement>(`.ghx-selected .ghx-statistic-badge, .ghx-selected .ghx-estimate`);
+    const elements = document.querySelectorAll<HTMLSpanElement>(`.joszeh .css-1lt331k, .jbkePs .css-1lt331k`);
     for(const element of Array.from(elements)) {
         if(element.innerText === `-`) {
             continue;
